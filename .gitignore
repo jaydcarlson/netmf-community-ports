@@ -11,3 +11,9 @@
 *.lai
 *.la
 *.a
+
+# NETMF cache files
+*.cache
+
+# BuildOutput
+/BuildOutput
