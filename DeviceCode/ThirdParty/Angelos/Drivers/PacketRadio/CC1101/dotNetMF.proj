@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <AssemblyName>CC1101</AssemblyName>
+    <Size />
+    <ProjectGuid>{B0DAF504-4F45-4237-9F96-F11D2AAD741D}</ProjectGuid>
+    <Description>CC1101 driver</Description>
+    <Level>HAL</Level>
+    <LibraryFile>CC1101.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Drivers\PacketRadio\CC1101\dotNetMF.proj</ProjectPath>
+    <ManifestFile>CC1101.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Angelos.PacketRadio</Groups>
+    <LibraryCategory>
+<MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="PacketRadio" Guid="{DD6B7B0F-AE94-4658-82F9-A2D217BB0CA7}" ProjectPath="$(SPOCLIENT)\Framework\Features\Angelos.PacketRadio.libcatproj" Conditional="" xmlns="">
+  <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
+    <Major>4</Major>
+    <Minor>0</Minor>
+    <Revision>0</Revision>
+    <Build>0</Build>
+    <Extra />
+    <Date>2009-04-30</Date>
+    <Author />
+  </VersionDependency>
+  <ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType>
+</MFComponent></LibraryCategory>
+    <Documentation />
+    <PlatformIndependent>True</PlatformIndependent>
+    <CustomFilter />
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <HasLibraryCategory>True</HasLibraryCategory>
+    <Directory>DeviceCode\ThirdParty\Angelos\Drivers\PacketRadio\CC1101</Directory>
+    <OutputType>Library</OutputType>
+     <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CC1101_functions.cpp" />
+    <Compile Include="CC1101_driver.cpp" />
+    <HFiles Include="CC1101.h" />
+    <HFiles Include="PacketRadio_decl.h" />
+    <IncludePaths Include="DeviceCode\ThirdParty\Angelos\Drivers\PacketRadio\CC1101" />
+    <IncludePaths Include="DeviceCode\include" />
+    
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <Import Project="$(SPOCLIENT)\Framework\Features\Angelos.CC1101_Config_HAL.libcatproj" />
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

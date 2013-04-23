@@ -1,0 +1,24 @@
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Author>Ominc</Author>
+    <Description>FEZCerberus board solution</Description>
+    <Documentation>
+    </Documentation>
+    <PlatformGuid>{004200D3-0084-00A0-8D5C-30486075369E}</PlatformGuid>
+    <INSTRUCTION_SET>THUMB2</INSTRUCTION_SET>
+    <TARGETPLATFORM>FEZCerberus</TARGETPLATFORM>
+    <PLATFORM>FEZCerberus</PLATFORM>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <ENDIANNESS>le</ENDIANNESS>
+    <NO_BOOTLOADER_COMPRESSION>true</NO_BOOTLOADER_COMPRESSION>
+    <DEVICE_TYPE>cortex-m4</DEVICE_TYPE>
+  </PropertyGroup>
+  <ItemGroup>
+    <TinyCLR_Defines Include="PLATFORM_NO_CLR_TRACE=1" />
+    <TinyCLR_Defines Include="TINYCLR_NO_IL_INLINE=1" />
+  </ItemGroup>   
+  <ItemGroup>
+    <IncludePaths Include="Solutions\FEZCerberus\" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\devicecode\Targets\Native\STM32F4\STM32F4.settings" />
+</Project>

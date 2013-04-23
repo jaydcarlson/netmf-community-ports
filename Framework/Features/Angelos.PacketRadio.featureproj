@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <PropertyGroup>
+    <FeatureName>Angelos.Hardware.PacketRadio</FeatureName>
+	<Description>Packet Radio functionality, including HAL-level driver and interop module</Description>
+    <Guid>{ABD3C936-C0DB-480A-B3BB-BF560C771E4A}</Guid>
+    <Groups>Angelos.PacketRadio</Groups>
+    <Documentation />
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+</PropertyGroup>
+<ItemGroup>
+    <DriverLibs Include="Angelos_PacketRadio.$(LIB_EXT)" />
+    <InteropFeature Include="Angelos_PacketRadio" />
+	<InteropFeature Include="Angelos_PacketReceived" />
+    <MMP_DAT_CreateDatabase Include="$(BUILD_TREE_CLIENT)\pe\$(ENDIANNESS)\Angelos_PacketRadio.pe" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native\dotnetmf.proj" />
+    <RequiredManagedProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Managed\PacketRadio.csproj" Condition="'$(AUTOMATED_BUILD)'==''" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\Framework\Features\Angelos.PacketRadio.libcatproj" />
+
+</Project>

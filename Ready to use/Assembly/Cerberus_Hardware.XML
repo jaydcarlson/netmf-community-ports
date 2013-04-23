@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cerberus_Hardware</name>
+    </assembly>
+    <members>
+        <member name="T:Cerberus.Hardware.InputCaptureEventHandler">
+            <summary>
+            Event handler for Input capture
+            </summary>
+            <param name="source">Source pin</param>
+            <param name="count">Count captured</param>
+            <param name="time">Capture time</param>
+            <param name="overCapture">Indicates whether one or more events was too close to be captured</param>
+        </member>
+        <member name="T:Cerberus.Hardware.QuadratureEncoder">
+            <summary>
+            Hardware quadrature encoder with 32 bits counter on pins PA0 and PA1
+            <para>Allows independent capture of the counter value on falling edge of PA2 and PA3</para>
+            </summary>
+        </member>
+        <member name="M:Cerberus.Hardware.QuadratureEncoder.#ctor">
+            <summary>
+            Initialize a new <see cref="T:Cerberus.Hardware.QuadratureEncoder"/>
+            </summary>
+        </member>
+        <member name="M:Cerberus.Hardware.QuadratureEncoder.Dispose">
+            <summary>
+            Dispose native resources
+            </summary>
+        </member>
+        <member name="M:Cerberus.Hardware.QuadratureEncoder.Dispatcher_OnInterrupt(System.UInt32,System.UInt32,System.DateTime)">
+            <summary>
+            Relay native interrupt
+            </summary>
+            <param name="data1"></param>
+            <param name="data2"></param>
+            <param name="time"></param>
+        </member>
+        <member name="P:Cerberus.Hardware.QuadratureEncoder.Count">
+            <summary>
+            Get or set the counter value
+            </summary>
+        </member>
+        <member name="P:Cerberus.Hardware.QuadratureEncoder.InputCaptureEnabled">
+            <summary>
+            Gets or sets a value indicating whether a falling edge on an input captures the counter value
+            </summary>
+        </member>
+        <member name="P:Cerberus.Hardware.QuadratureEncoder.CountEnabled">
+            <summary>
+            Gets or sets a value indicating whether the counter is updated according to the encoder inputs
+            <para>When not enabled, the counter retains its value regardless of the encoder inputs</para>
+            </summary>
+        </member>
+        <member name="E:Cerberus.Hardware.QuadratureEncoder.InputCapture">
+            <summary>
+            Event fired by input capture on pin PA2 or PA3
+            <para>This event is not fired if <see cref="P:Cerberus.Hardware.QuadratureEncoder.InputCaptureEnabled"/>is false</para>
+            </summary>
+        </member>
+    </members>
+</doc>

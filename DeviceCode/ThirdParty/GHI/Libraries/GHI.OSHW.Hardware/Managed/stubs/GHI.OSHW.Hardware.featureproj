@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FeatureName>GHI.OSHW.Hardware</FeatureName>
+    <Guid>{7d474d07-533b-489f-a1ec-943802e47398}</Guid>
+    <Description>&lt;Add Feature Description Here&gt;</Description>
+    <Groups />
+  </PropertyGroup>
+  <ItemGroup>
+    <DriverLibs Include="GHI_OSHW_Hardware.$(LIB_EXT)" />
+    <InteropFeature Include="GHI_OSHW_Hardware" />
+    <MMP_DAT_CreateDatabase Include="$(BUILD_TREE_CLIENT)\pe\$(ENDIANNESS)\GHI.OSHW.Hardware.pe" />
+    <RequiredProjects Include="C:\MicroFrameworkPK_v4_2\DeviceCode\GHI\Libraries\GHI.OSHW.Hardware\Managed\stubs\dotnetmf.proj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <AssemblyName>Tinybooter</AssemblyName>
+    <ProjectGuid>{182dd194-9461-4d98-855c-256f4f89f332}</ProjectGuid>
+    <Description />
+    <Documentation />
+    <Directory>Solutions\FEZ_Hydra\TinyBooter</Directory>
+    <IsClrProject>False</IsClrProject>
+    <InteropFeatures />
+    <ExtraAssemblies />
+    <ProjectPath>$(SPOCLIENT)\Solutions\FEZ_Hydra\TinyBooter\TinyBooter.proj</ProjectPath>
+    <MFSettingsFile>$(SPOCLIENT)\Solutions\FEZ_Hydra\FEZ_Hydra.settings</MFSettingsFile>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <PropertyGroup>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <OutputType>Executable</OutputType>
+    <!--4.1-->
+    <!--<reducesize>true</reducesize>-->
+    <MultipleOutputSections>false</MultipleOutputSections>
+    <ExtraTargets>BuildSigFiles</ExtraTargets>
+    <!--4.1-->
+    <!--<ExtraTargets>$(ExtraTargets);CompressBin</ExtraTargets>-->
+    <ScatterFileDefinition>scatterfile_bootloader_$(COMPILER_TOOL).$(SCATTER_EXT)</ScatterFileDefinition>
+    <EXEScatterFileDefinition>scatterfile_bootloader_$(COMPILER_TOOL).$(SCATTER_EXT)</EXEScatterFileDefinition>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <!--4.1-->
+    <!--<Compile Include="$(SPOCLIENT)\Application\common\assemblycode\arm\$(AS_SUBDIR)\FirstEntryMinimal.s" Condition="'$(INSTRUCTION_SET)'=='arm' or '$(INSTRUCTION_SET)'=='thumb'" />
+    <Compile Include="$(SPOCLIENT)\Application\common\assemblycode\thumb2\$(AS_SUBDIR)\FirstEntryMinimal.s" Condition="'$(INSTRUCTION_SET)'=='thumb2'" />-->
+    <Compile Include="$(SRC_DIR)\$(AS_SUBDIR)\BootSignature.s" />
+    <Compile Include="$(SRC_DIR)\Allocator.cpp" />
+    <Compile Include="$(SRC_DIR)\TinyBooterEntry.cpp" />
+    <CompressBinAsm Include="$(AS_SUBDIR)\TinyBooter_dat.s" />
+    <CompressBinComp Include="$(OBJ_DIR)\TinyBooter_compressed.dat" />
+    <CompressBinFile Include="$(BIN_DIR)\TinyBooter.bin" />
+    <CompressBinOutput Include="$(OBJ_DIR)\Tinybooter_dat.$(OBJ_EXT)" />
+    <ExtraCleanFiles Include="$(OBJ_DIR)\TinyBooter_Compressed.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlatformIndependentLibs Include="TinybooterLib.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Application\TinyBooter\TinyBooterLib.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="asyncproccall_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\AsyncProcCall\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="backlight_hal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Backlight\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="batterycharger_hal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\BatteryCharger\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="batterymeasurement_hal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\BatteryMeasurement\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="blockstorage_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\BlockStorage\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="SAM9_Bootstrap.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_Bootstrap\dotNetMF_SAM9.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="ARM9_bootstrap.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Cores\arm\Processors\ARM9\Bootstrap\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="ARM9_mmu.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Cores\arm\Processors\ARM9\MMU\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Buttons_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Buttons\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_Cache.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_Cache\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="COM_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="DebuggerPort_SSL_Config_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\Config\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Watchdog_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\Watchdog\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlatformIndependentLibs Include="CRC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Support\CRC\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Crypto.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Crypto\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="diagnostics_pal.$(LIB_EXT)" Condition="'$(FLAVOR)'=='Instrumented'" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Diagnostics\dotNetMF.proj" Condition="'$(FLAVOR)'=='Instrumented'" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="cpu_ebiu_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\stubs\processor\stubs_EBIU\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="events_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Events\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="FS_Config_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\FS\stubs\config\dotnetmf.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="config_pal_loader.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Configuration\dotNetMF_loader.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="GlobalLock_hal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Cores\arm\Common\GlobalLock\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="TinyHal_loader.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\cores\arm\dotNetMF_loader.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_GPIO.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_GPIO\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="heap_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Heap\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="palevent_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\palevent\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Ink_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\Ink\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Time_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\Time\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Gesture_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\Gesture\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="i2c_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\I2C\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="system_initialization_hal_loader.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Initialization\dotNetMF_loader.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="SimpleHeap.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\SimpleHeap\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="SimpleHeap_config.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\SimpleHeap_config\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="tinycrt_pal_loader.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\devicecode\pal\TinyCRT\dotNetMF_loader.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_AIC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_AIC\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_LCD_9RL.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_LCD_9RL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="TX09D71VM1CCA.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Display\TX09D71VM1CCA\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="piezo_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Piezo\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_SAM.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_SAM\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="cpu_prestackinit_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Stubs\Processor\stubs_PreStackInit\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="sockets_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\Sockets\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <!--<ItemGroup>
+    <DriverLibs Include="cpu_spi_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\drivers\stubs\processor\stubs_spi\dotNetMF.proj" />
+  </ItemGroup>-->
+  <ItemGroup>
+    <DriverLibs Include="AT91_SPI.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_SPI\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_TIME.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_TIME\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_TIMER.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_TIMER\dotNetMF.proj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DriverLibs Include="usart_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\USART\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_USART.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_USART\dotNetMF.proj" />
+  </ItemGroup>
+  <!--<ItemGroup>
+    <DriverLibs Include="usart_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\USART\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="cpu_usart_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Stubs\processor\stubs_USART\dotNetMF.proj" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <DriverLibs Include="usb_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\USB\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_USBHS.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\AT91\DeviceCode\AT91_USBHS\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="cpu_watchdog_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\stubs\Processor\stubs_watchdog\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlatformIndependentLibs Include="WireProtocol.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Support\WireProtocol\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="TimeService_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\TimeService\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="Display_Font8x15.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Display\TextFonts\Font8x15\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="fs_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\fs\stubs\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="BS_WearLeveling.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\BlockStorage\WearLeveling\dotnetmf.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="MT29F2G08AAC_BL_Config.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\Blockstorage\MT29F2G08AAC\Config\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="MT29F2G08AAC_BL.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\Blockstorage\MT29F2G08AAC\Driver\dotNetMF.proj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DriverLibs Include="SerialDataFlash_BL_Config.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\Blockstorage\SerialDataFlash\Config\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="SerialDataFlash_BL.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\Blockstorage\SerialDataFlash\Driver\dotNetMF.proj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DriverLibs Include="GHI_OSHW_Configuration.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\GHI\Configuration\dotNetMF.proj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DriverLibs Include="TX09D71VM1CCA_Config_AT91.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\TX09D71VM1CCA\dotnetmf.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="AT91_SAM_Init.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\Init\dotnetmf.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="cpu_analog_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\stubs\processor\stubs_analog\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="cpu_pwm_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\stubs\processor\stubs_PWM\dotNetMF.proj" />
+  </ItemGroup>
+  <!-- DAC or AnalogOut Stubs -->
+  <ItemGroup>
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Stubs\Processor\stubs_DA\dotnetmf.proj" />
+    <DriverLibs Include="cpu_DA_stubs.$(LIB_EXT)" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="BlockStorageAddDevices_HAL_FEZ_Hydra.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\blockstorage\adddevices\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="USB_Config_PAL_FEZ_Hydra.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZ_Hydra\DeviceCode\usb_config\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="native_double_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Double\dotNetMF.proj" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

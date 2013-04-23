@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FeatureName>GHI.OSHW.Native</FeatureName>
+    <Guid>{34af9c33-3ade-4cbe-b9be-f0b0bd7b35c8}</Guid>
+    <Description>&lt;Add Feature Description Here&gt;</Description>
+    <Groups />
+  </PropertyGroup>
+  <ItemGroup>
+    <DriverLibs Include="GHI_OSHW_Native.$(LIB_EXT)" />
+    <InteropFeature Include="GHI_OSHW_Native" />
+    <MMP_DAT_CreateDatabase Include="$(BUILD_TREE_CLIENT)\pe\$(ENDIANNESS)\GHI.OSHW.Native.pe" />
+    <RequiredProjects Include="C:\MicroFrameworkPK_v4_2\DeviceCode\GHI\Libraries\GHI.OSHW.Native\Managed\stubs\dotnetmf.proj" />
+  </ItemGroup>
+</Project>

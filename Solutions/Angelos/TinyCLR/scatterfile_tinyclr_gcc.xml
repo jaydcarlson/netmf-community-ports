@@ -1,0 +1,166 @@
+﻿<?xml version="1.0"?>
+<ScatterFile xmlns="http://schemas.microsoft.com/netmf/ScatterfileSchema.xsd">
+
+  <!-- STM32 with 1M internal Flash and 192k internal RAM -->
+
+  <Set Name="Valid" Value="false"/>
+
+  <!-- ################################################################################ -->
+
+  <Set Name="RAM_Start"           Value="0x20000000"/>
+  <Set Name="RAM_Size"            Value="0x00020000"/> <!--128k-->
+  <Set Name="CCM_Start"           Value="0x10000000"/>
+  <Set Name="CCM_Size"            Value="0x00010000"/>  <!--64k-->
+
+  <Set Name="Stack_Bottom"            Value="0x10000000"/>
+  <Set Name="Stack_Size"              Value="0x00008000"/>  <!--32k-->
+  <Set Name="Heap_Begin"              Value="0x20000000"/>
+  <Set Name="Heap_End"                Value="0x2001CDF8"/>  <!--115k-->
+  <Set Name="RLP_Region_Begin"        Value="0x2001D000"/>  <!--11k-->
+  <!-- Custom heap used for interrupt handler table only -->
+  <Set Name="Custom_Heap_Begin"       Value="0x2001FE00"/>
+  <Set Name="Custom_Heap_End"         Value="0x2001FFF8"/>
+
+  <IfDefined Name="PROFILE_BUILD">
+    <Error Message="Configuration not implemented for GCC"/>
+  </IfDefined>
+
+  <If Name="TARGETLOCATION" In="FLASH">
+    <Set Name="Config_BaseAddress"  Value="0x0800C000"/>
+    <Set Name="Config_Size"         Value="0x00004000"/>
+    <Set Name="Code_BaseAddress"    Value="0x08010000"/>
+    <Set Name="Deploy_BaseAddress"  Value="0x08080000"/>
+    <Set Name="Code_Size"           Value="%Deploy_BaseAddress - Code_BaseAddress%" />
+    <Set Name="Valid"               Value="true"/>
+  </If>
+
+  <!-- ################################################################################ -->
+
+  <If Name="Valid" Value="false">
+    <Error Message="Configuration not recognized"/>
+  </If>
+
+  <NamedGroup Name="MEMORY">
+    <LoadRegion Name="LR_%TARGETLOCATION%" Base="%Code_BaseAddress%" Size="%Code_Size%"/>
+    <IfDefined Name="Config_BaseAddress">
+      <LoadRegion Name="LR_CONFIG" Base="%Config_BaseAddress%" Size="%Config_Size%"/>
+    </IfDefined>
+    <IfDefined Name="Data_BaseAddress">
+      <LoadRegion Name="LR_DAT" Base="%Data_BaseAddress%" Size="%Data_Size%"/>
+    </IfDefined>
+    <LoadRegion Name="HEAP" Base="%Heap_Begin%" Size="%Heap_End - Heap_Begin% + 1"/>
+    <LoadRegion Name="STACK" Base="%Stack_Bottom%" Size="%Stack_Size%"/>
+    <LoadRegion Name="RAM" Base="%CCM_Start + Stack_Size%" Size="%CCM_Size - Stack_Size%"/>
+  </NamedGroup>
+
+  <EntryPoint Name="EntryPoint"/>
+
+  <NamedGroup Name="SECTIONS">
+    <!--<ExecRegion Name="ER_BOOT" Options="&gt;LR_BOOT">
+      <FileMapping Name="*" Options="(i.EntryPoint)"/>
+    </ExecRegion>-->
+    <ExecRegion Name="ER_%TARGETLOCATION%" Options="&gt;LR_%TARGETLOCATION%">
+      <FileMapping Name="*" Options="(i.EntryPoint)"/>
+      <FileMapping Name="*" Options="(SectionForBootstrapOperations)" />
+      <FileMapping Name="*" Options="(.text*)" />
+      <FileMapping Name="*" Options="(i.*)" />
+      <FileMapping Name="*" Options="(t.*)" />
+      <FileMapping Name="*" Options="(.rodata*)" />
+      <FileMapping Name="*" Options="(rodata)" />
+      <FileMapping Name="*" Options="(.constdata*)" />
+      <FileMapping Name="*" Options="(.conststring*)" />
+       <FileMapping Name="*" Options="(.glue*)" />
+      <FileMapping Name="*" Options="(tinyclr_metadata)" />
+      <FileMapping Name="*" Options="(SectionForFlashOperations)" />
+     <!--<IfNotDefined Name="Data_BaseAddress">
+        <FileMapping Name="*" Options="(tinyclr_metadata)" />
+      </IfNotDefined>
+      <IfNotDefined Name="Config_BaseAddress">
+        <FileMapping Name="*" Options="(SectionForConfig)" />
+      </IfNotDefined>-->
+      <!-- libc thinks that it needs these routines, but they are never called -->
+      <Provide Name="_sbrk" />
+      <Provide Name="_write" />
+      <Provide Name="_close" />
+      <Provide Name="_fstat" />
+      <Provide Name="_lseek" />
+      <Provide Name="_read" />
+      <Provide Name="_exit" />
+      <Provide Name="_getpid" />
+      <Provide Name="_kill" />
+      <Provide Name="abort" />
+      <Provide Name="__errno" />
+      <Provide Name="_read" />
+      <Provide Name="isatty" />
+      <Provide Name="_isatty" />
+      <FileMapping Name="LONG(0xE12FFF1E);" />
+    </ExecRegion>
+    <ExecRegion Name="ER_RAM_RO" Align="0x10" Options="&gt;RAM AT&gt;LR_%TARGETLOCATION%">
+    </ExecRegion>
+    <ExecRegion Name="ER_RAM_RW" Align="0x10" Options="&gt;RAM AT&gt;LR_%TARGETLOCATION%">
+      <FileMapping Name="*" Options="(rwdata)" />
+      <FileMapping Name="*" Options="(.data*)" />
+    </ExecRegion>
+    <ExecRegion Name=".bss" Align="0x10" Options="&gt;RAM">
+      <FileMapping Name="*" Options="(.zidata*)" />
+      <FileMapping Name="*" Options="(.bss*)" />
+      <FileMapping Name="PROVIDE(__exidx_start = .);" />
+      <FileMapping Name="PROVIDE(__exidx_end = .);" />
+    </ExecRegion>
+
+    <ExecRegion Name="ER_HEAP_BEGIN" Base="%Heap_Begin%">
+      <FileMapping Name="*" Options="(SectionForHeapBegin)" />
+    </ExecRegion>
+    <!-- everything between heapbegin and heapend will be allocated for a heap -->
+    <ExecRegion Name="ER_HEAP_END" Base="%Heap_End%">
+      <FileMapping Name="*" Options="(SectionForHeapEnd)" />
+    </ExecRegion>
+
+    <ExecRegion Name="ER_CUSTOM_HEAP_BEGIN" Base="%Custom_Heap_Begin%">
+      <FileMapping Name="*" Options="(SectionForCustomHeapBegin)" />
+    </ExecRegion>
+    <!-- everything between heapbegin and heapend will be allocated for the unmanaged SimpleHeap -->
+    <ExecRegion Name="ER_CUSTOM_HEAP_END" Base="%Custom_Heap_End%">
+      <FileMapping Name="*" Options="(SectionForCustomHeapEnd)" />
+    </ExecRegion>
+
+    <ExecRegion Name="ER_STACK_BOTTOM" Base="%Stack_Bottom%">
+      <FileMapping Name="*" Options="(SectionForStackBottom)" />
+    </ExecRegion>
+    <ExecRegion Name="ER_STACK_TOP" Base="%Stack_Bottom + Stack_Size%">
+      <FileMapping Name="*" Options="(SectionForStackTop)" />
+    </ExecRegion>
+
+    <ExecRegion Name="/DISCARD/">
+      <FileMapping Name="*" Options="(.ARM.exidx*)" />
+      <FileMapping Name="*" Options="(.ARM.extab*)" />
+    </ExecRegion>
+
+    <IfDefined Name="Config_BaseAddress">
+      <ExecRegion Name="ER_CONFIG" Options="&gt;LR_CONFIG">
+        <FileMapping Name="*" Options="(SectionForConfig)" />
+      </ExecRegion>
+    </IfDefined>
+    <IfDefined Name="Data_BaseAddress">
+      <ExecRegion Name="ER_DAT" Options="&gt;LR_DAT">
+        <FileMapping Name="*" Options="(tinyclr_metadata)" />
+      </ExecRegion>
+    </IfDefined>
+  </NamedGroup>
+
+  <!-- The following variables are used to simulate the ones autogenerated by RVDS -->
+  <GlobalVariable Name="Load$$ER_%TARGETLOCATION%$$Base"          Value="ADDR(ER_%TARGETLOCATION%)"/>
+  <GlobalVariable Name="Image$$ER_%TARGETLOCATION%$$Length"       Value="SIZEOF(ER_%TARGETLOCATION%)"/>
+
+  <GlobalVariable Name="Image$$ER_RAM_RO$$Base"                   Value="ADDR(ER_RAM_RO)"/>
+  <GlobalVariable Name="Image$$ER_RAM_RO$$Length"                 Value="SIZEOF(ER_RAM_RO)"/>
+  <GlobalVariable Name="Load$$ER_RAM_RO$$Base"                    Value="LOADADDR(ER_RAM_RO)"/>
+
+  <GlobalVariable Name="Image$$ER_RAM_RW$$Base"                   Value="ADDR(ER_RAM_RW)"/>
+  <GlobalVariable Name="Image$$ER_RAM_RW$$Length"                 Value="SIZEOF(ER_RAM_RW)"/>
+  <GlobalVariable Name="Load$$ER_RAM_RW$$Base"                    Value="LOADADDR(ER_RAM_RW)"/>
+  <GlobalVariable Name="Image$$ER_RAM_RW$$ZI$$Base"               Value="ADDR(.bss)"/>
+  <GlobalVariable Name="Image$$ER_RAM_RW$$ZI$$Length"             Value="SIZEOF(.bss)"/>
+  <GlobalVariable Name="__use_no_semihosting_swi"                 Value="0"/>
+
+</ScatterFile>

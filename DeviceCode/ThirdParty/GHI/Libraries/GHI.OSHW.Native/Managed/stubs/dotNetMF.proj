@@ -1,0 +1,18 @@
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Directory>DeviceCode\Targets\Native\Interop\GHI_OSHW_Native</Directory>
+    <AssemblyName>GHI_OSHW_Native</AssemblyName>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+<ItemGroup>
+<HFile Include="HAL.h" />
+<Compile Include="HAL.cpp" />
+<Compile Include="HAL_GHI_OSHW_Native_RLPLite__Procedure_mshl.cpp" />
+<HFile Include="HAL_GHI_OSHW_Native_RLPLite__Procedure.h" />
+<Compile Include="HAL_GHI_OSHW_Native_RLPLite__Procedure.cpp" />
+</ItemGroup>
+<Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

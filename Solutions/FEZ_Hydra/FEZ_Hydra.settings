@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Author>GHI Electronics LLC</Author>
+    <Description>NetMF 4.2  port of FEZ Hydra. Analog and PWM is now native to the build.</Description>
+    <Documentation />
+    <PlatformGuid>{685a58bb-cc7a-4d8a-814e-6cce87733080}</PlatformGuid>
+    <TARGETPLATFORM>FEZ_Hydra</TARGETPLATFORM>
+    <PLATFORM>FEZ_Hydra</PLATFORM>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <ENDIANNESS>le</ENDIANNESS>
+    <TCP_IP_STACK>LWIP</TCP_IP_STACK>
+  </PropertyGroup>
+  <ItemGroup>
+    <IncludePaths Include="Solutions\FEZ_Hydra" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\devicecode\Targets\Native\AT91\AT91SAM9RL64.settings" />
+</Project>

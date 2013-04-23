@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FeatureName>Cerberus_Hardware</FeatureName>
+    <Guid>{70a5e163-d031-4894-b58d-98d7c54972ba}</Guid>
+    <Description>&lt;Add Feature Description Here&gt;</Description>
+    <Groups />
+    <CERBERUS_HARDWARE_FEATUREPROJ>True</CERBERUS_HARDWARE_FEATUREPROJ>
+  </PropertyGroup>
+  <ItemGroup>
+    <DriverLibs Include="Cerberus_Hardware.$(LIB_EXT)" />
+    <InteropFeature Include="Cerberus_Hardware" />
+    <InteropFeature Include="Cerberus_Hardware_QuadratureEncoder_Driver" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\FEZCerberus\Libraries\Cerberus.Hardware\Native\dotnetmf.proj" />
+  </ItemGroup>
+</Project>

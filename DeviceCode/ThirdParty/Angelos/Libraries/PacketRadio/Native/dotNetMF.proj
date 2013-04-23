@@ -1,0 +1,23 @@
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Directory>DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native</Directory>
+    <AssemblyName>Angelos_PacketRadio</AssemblyName>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+<ItemGroup>
+<HFile Include="Angelos_PacketRadio.h" />
+<Compile Include="Angelos_PacketRadio.cpp" />
+<Compile Include="Angelos_PacketRadio_Angelos_PacketRadio_mshl.cpp" />
+<HFile Include="Angelos_PacketRadio_Angelos_PacketRadio.h" />
+<Compile Include="Angelos_PacketRadio_Angelos_PacketRadio.cpp" />
+</ItemGroup>
+<ItemGroup>
+<HFile Include="Radio_PacketReceived.h" />
+<Compile Include="Radio_PacketReceived.cpp" />
+</ItemGroup>
+
+<Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

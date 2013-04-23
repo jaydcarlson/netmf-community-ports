@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <AssemblyName>packetradio_stubs</AssemblyName>
+    <Size />
+    <ProjectGuid>{89D28B32-F26E-4820-9544-E71332BF40AB}</ProjectGuid>
+    <Description>Stub PacketRadio driver</Description>
+    <Level>HAL</Level>
+    <LibraryFile>packetradio_stubs.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Drivers\PacketRadio\stubs\dotNetMF.proj</ProjectPath>
+    <ManifestFile>packetradio_stubs.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Angelos.PacketRadio</Groups>
+    <LibraryCategory>
+<MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="WSN_HAL" Guid="{DD6B7B0F-AE94-4658-82F9-A2D217BB0CA7}" ProjectPath="$(SPOCLIENT)\Framework\Features\Angelos.PacketRadio.libcatproj" Conditional="" xmlns="">
+  <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
+    <Major>4</Major>
+    <Minor>0</Minor>
+    <Revision>0</Revision>
+    <Build>0</Build>
+    <Extra />
+    <Date>2013-03-02</Date>
+    <Author />
+  </VersionDependency>
+  <ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType>
+</MFComponent></LibraryCategory>
+    <Documentation />
+    <PlatformIndependent>True</PlatformIndependent>
+    <CustomFilter />
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>True</IsStub>
+    <Directory>DeviceCode\ThirdParty\Angelos\Drivers\PacketRadio\stubs</Directory>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <HasLibraryCategory>True</HasLibraryCategory>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <ItemGroup>
+    <Compile Include="PacketRadio_functions.cpp" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

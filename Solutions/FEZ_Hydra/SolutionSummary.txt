@@ -1,0 +1,245 @@
+The .NET Micro Framework Solution Wizard will create the 'FEZ_Hydra' solution in the directory:
+
+	C:\MicroFrameworkPK_v4_2\\Solutions\FEZ_Hydra
+
+The following is a description of the components of this solution.  Each solution consists of a set of projects which in turn have a set of features and libraries.
+
+    Solution:                          	 FEZ_Hydra
+    Author:                            	 GHI Electronics LLC
+    Description:                       	 NetMF 4.2  port of FEZ Hydra. Analog and PWM is now native to the build.
+    Processor:                         	 AT91SAM9RL64
+    Debugger Port:                     	 USB1
+
+
+Project Tinybooter
+    Description:                       	 
+    Path:                              	 Solutions\FEZ_Hydra\TinyBooter
+
+Libraries:
+    TinybooterLib:                     	 TinyBooter core library
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    blockstorage_pal:                  	 Block storage library
+    SAM9_Bootstrap:                    	 Atmel AT91 SAM9 bootstrap driver
+    ARM9_bootstrap:                    	 ARM9 core bootstrap
+    ARM9_mmu:                          	 ARM9 MMU core driver
+    Buttons_pal_stubs:                 	 Buttons stub library
+    AT91_Cache:                        	 Atmel SAM9261 cache driver
+    COM_pal:                           	 Communication port director
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    Watchdog_pal_stubs:                	 Watchdog stub
+    CRC:                               	 CRC library
+    Crypto:                            	 Cryptography library
+    diagnostics_pal:                   	 Diagnostics library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    FS_Config_stubs:                   	 File system config stub
+    config_pal_loader:                 	 System configuration boot loader library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    AT91_GPIO:                         	 Atmel AT91 general purpose input-output (GPIO) driver
+    heap_pal:                          	 Managed heap size and location configuration
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    i2c_pal_stubs:                     	 I2C stub library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    SimpleHeap:                        	 SimpleHeap unmanaged heap
+    SimpleHeap_config:                 	 Simple unmanaged heap
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    AT91_AIC:                          	 Atmel AT91 interrupt controller driver
+    AT91_LCD_9RL:                      	 Atmel SAM9RL64 display driver
+    TX09D71VM1CCA:                     	 TX09D71VM1CCA Display driver
+    piezo_pal_stubs:                   	 Piezo stub driver
+    AT91_SAM:                          	 Atmel processor power driver
+    cpu_prestackinit_stubs:            	 Pre stack initialization stub driver
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_spi_stubs:                     	 SPI stub library
+    AT91_TIME:                         	 Atmel AT91 time driver
+    AT91_TIMER:                        	 Atmel AT91 timer driver
+    usart_pal_stubs:                   	 USART stub driver
+    cpu_usart_stubs:                   	 USART stub library
+    usb_pal:                           	 USB driver
+    AT91_USBHS:                        	 Atmel AT91 USB High Speed driver
+    cpu_watchdog_stubs:                	 Watchdog driver
+    WireProtocol:                      	 Device communication protocol
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    Display_Font8x15:                  	 Text Font (8x15 pixels)
+    fs_pal_stubs:                      	 File System stub library
+    BS_WearLeveling:                   	 Wear Leveling driver for block storage
+    MT29F2G08AAC_BL_Config:            	 
+    MT29F2G08AAC_BL:                   	 
+    TX09D71VM1CCA_Config_AT91:         	 TX09D71VM1CCA LCD controller config for FEZ_Hydra
+    AT91_SAM_Init:                     	 Atmel AT91 initialization code
+    cpu_analog_stubs:                  	 Analog stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    BlockStorageAddDevices_HAL_FEZ_Hydra:	 Block storage add device stub driver
+    USB_Config_PAL_FEZ_Hydra:          	 USB config library
+    native_double_pal:                 	 Doubles Native PAL library
+
+
+Project tinyclr
+    Description:                       	 
+    Path:                              	 Solutions\FEZ_Hydra\TinyCLR
+
+Features:
+    Core:                              	 Core functionality (required)
+    Hardware:                          	 Core hardware component
+    NativeEventDispatcher:             	 Native event dispatching for interop
+    Graphics:                          	 Core graphics functionality
+    TinyCore:                          	 TinyCore graphics subsystem
+    InterruptHandler:                  	 Support for interrupt handling
+    Debugger:                          	 Visual Studio debugger support
+    Stream:                            	 Stream component
+    FileSystem:                        	 File system
+    DataStorage:                       	 Data storage (extended weak reference storage)
+    BlockStorage:                      	 Block storage support
+    Diagnostics:                       	 Diagnostic utilities
+    SPI:                               	 SPI support
+    USB:                               	 Usb Transport
+    UsbClient:                         	 Usb client component
+    Serial:                            	 Serial transport
+    SerialPort:                        	 Serial port component
+    Serialization:                     	 Data serialization support
+    TouchPanel:                        	 Touch panel support
+    Gesture:                           	 Gesture support for touch panel
+    Ink:                               	 Inking support for touch panel
+    WearLeveling:                      	 Block storage wear leveling
+    PWM:                               	 PWM component
+    OneWire:                           	 OneWire feature
+    I2C:                               	 I2C Support
+    XML:                               	 Xml utilities component
+    TimeService:                       	 Time Service support
+    SOCKET:                            	 Socket transport
+    Network (LWIP):                    	 Network core functionality for lwIP stack
+    SSL (Open):                        	 OpenSSL support for networking
+
+Libraries:
+    MFUpdate_PAL_stub:                 	 MFUpdate PAL stub component
+    ssl_pal_stubs:                     	 SSL PAL layer stub library
+    Core:                              	 CLR core library
+    LargeBuffer_hal_stubs:             	 LargeBuffer stub library
+    Hardware:                          	 Core hardware functionality
+    InterruptHandler:                  	 Interrupt handler library
+    HeapPersistence:                   	 Extended weak references data storage 
+    IOPort:                            	 Native event dispatcher (formerly IOPort)
+    Ink_pal:                           	 Ink set of methods used by Ink, Ink
+    Serialization:                     	 Binary serialization (proprietary format)
+    Stream:                            	 Generic stream functionality
+    Debugger:                          	 Visual Studio debugging support
+    Debugger_full:                     	 Full Visual Studio debugging support
+    Debugger_minimal:                  	 Minimal debug API methods
+    Diagnostics:                       	 Diagnostic functionality
+    Diagnostics_stub:                  	 Diagnostics stub library
+    Graphics_Bmp:                      	 Bitmap support for graphics subsystem
+    Graphics:                          	 Graphics subsystem library
+    Graphics_Gif:                      	 GIF library for graphics subsystem
+    Graphics_Jpeg:                     	 JPEG library for graphics subsystem
+    CorLib:                            	 Subset of mscorlib
+    SPOT:                              	 Common interop library
+    SPOT_Serialization:                	 Serialization interop library
+    SPOT_Graphics:                     	 Graphics interop library
+    SPOT_Hardware:                     	 Hardware interop library
+    SPOT_Touch:                        	 Touch panel interop library
+    SPOT_Hardware_SerialPort:          	 SerialPort interop library
+    SPOT_Hardware_Usb:                 	 
+    usb_pal:                           	 USB driver
+    AT91_USBHS:                        	 Atmel AT91 USB High Speed driver
+    SPOT_IO:                           	 Stream interop library
+    SPOT_Net:                          	 Network interop library
+    Messaging:                         	 Core communication component
+    CLRStartup:                        	 Common CLR initialization library
+    Crypto_stub:                       	 Crypto stub library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal:                           	 Core HAL library
+    cpu_prestackinit_stubs:            	 Pre stack initialization stub driver
+    ARM9_bootstrap:                    	 ARM9 core bootstrap
+    ARM9_mmu:                          	 ARM9 MMU core driver
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    Display_Font8x15:                  	 Text Font (8x15 pixels)
+    TX09D71VM1CCA:                     	 TX09D71VM1CCA Display driver
+    FS_FAT:                            	 FAT file system 
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_performancecounter_stubs:      	 Performance counter stub library
+    AT91_SPI:                          	 Atmel AT91 SPI driver
+    cpu_watchdog_stubs:                	 Watchdog driver
+    Watchdog_pal_stubs:                	 Watchdog stub
+    BS_WearLeveling:                   	 Wear Leveling driver for block storage
+    system_initialization_hal:         	 System initialization library
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    MT29F2G08AAC_BL_Config:            	 
+    MT29F2G08AAC_BL:                   	 
+    Buttons_pal:                       	 Buttons library
+    COM_pal:                           	 Communication port director
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    usart_pal:                         	 USART driver
+    config_pal:                        	 System configuration
+    diagnostics_pal:                   	 Diagnostics library
+    events_pal:                        	 System event library
+    palevent_pal:                      	 palevent set of methods used by Gesture, Ink
+    Gesture_pal:                       	 Gesture set of methods used by Gesture, Ink
+    fs_pal:                            	 File system PAL Driver
+    graphics_pal:                      	 Graphics library
+    heap_pal:                          	 Managed heap size and location configuration
+    SimpleHeap:                        	 SimpleHeap unmanaged heap
+    SimpleHeap_config:                 	 Simple unmanaged heap
+    piezo_pal_stubs:                   	 Piezo stub driver
+    tinycrt_pal:                       	 CRT functionality
+    AT91_AIC:                          	 Atmel AT91 interrupt controller driver
+    SAM9_Bootstrap:                    	 Atmel AT91 SAM9 bootstrap driver
+    AT91_Cache:                        	 Atmel SAM9261 cache driver
+    AT91_GPIO:                         	 Atmel AT91 general purpose input-output (GPIO) driver
+    AT91_LCD_9RL:                      	 Atmel SAM9RL64 display driver
+    AT91_SAM:                          	 Atmel processor power driver
+    AT91_TIMER:                        	 Atmel AT91 timer driver
+    AT91_TIME:                         	 Atmel AT91 time driver
+    Time_pal:                          	 Time set of methods used by Time, Time
+    cpu_analog_stubs:                  	 Analog stub library
+    AT91_USART:                        	 Atmel AT91 USART driver
+    AT91_SAM_Init:                     	 Atmel AT91 initialization code
+    TX09D71VM1CCA_Config_AT91:         	 TX09D71VM1CCA LCD controller config for FEZ_Hydra
+    TouchPanel_pal:                    	 Touch panel driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    SPOT_Hardware_OneWire:             	 OneWire interop library
+    SecurityPkcs11:                    	 PKCS11
+    SPOT_Update:                       	 Common interop library
+    SPOT_Messaging_stub:               	 Messaging interop stub library
+    TimeService_pal:                   	 Time set of methods used by Time, Time
+    TouchPanel_HAL_FEZ_Hydra:          	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\TouchPanel_HAL
+    SPOT_Hardware_PWM:                 	 PWM interop library
+    onewire_pal_stubs:                 	 OneWire stub driver
+    I2C:                               	 I2C support
+    i2c_pal:                           	 I2C drivers
+    System_Xml:                        	 Xml interop library
+    Xml:                               	 Native Xml functionality
+    SPOT_TimeService:                  	 TimeService interop library
+    sockets_pal_lwip:                  	 Network sockets driver for lwIP stack
+    SPOT_Net_Security:                 	 SSL interop library
+    AT91_I2C:                          	 Atmel AT91 I2C driver
+    FileSystem_Config_PAL_FEZ_Hydra:   	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\FileSystem_Config_PAL
+    BlockStorageAddDevices_HAL_FEZ_Hydra:	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\BlockStorageAddDevices_HAL
+    RPC_stub:                          	 Remote procedure call stub library
+    TouchScreen_Config_HAL_FEZ_Hydra:  	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\TouchScreen_Config_HAL
+    sockets_hal_sockets_lwIP:          	 Network async abstraction layer
+    sockets_hal_dhcp_lwIP:             	 LWIP DHCP Driver
+    sockets_lwIP_pal:                  	 lwIP network driver
+    sockets_hal_async_LWIP:            	 Network async abstraction layer
+    sockets_hal_TCP_LWIP:              	 LWIP TCP layer
+    sockets_hal_udp_lwIP:              	 LWIP UDP netowrk layer
+    Ethernet_enc28j60_lwip:            	 ENC28J60 Ethernet Driver
+    Ethernet_loopback_lwip:            	 Loopback Ethernet Driver
+    PWM_HAL_FEZ_Hydra:                 	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\PWM_HAL
+    Network_Config_HAL_FEZ_Hydra:      	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\Network_Config_HAL
+    timeservice_hal_generic:           	 Time Service hal library
+    ENC28J60_Config_LWIP_HAL_FEZ_Hydra:	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\FEZ_Hydra\DeviceCode\ENC28J60_Config_LWIP_HAL
+    VirtualKey_FEZ_Hydra:              	 Virtual key driver for FEZ_Hydra
+    USB_Config_PAL_FEZ_Hydra:          	 USB config library
+    onewire_pal:                       	 Maxim Dallas 1-Wire and iButton driver
+    native_double_pal:                 	 Doubles Native PAL library

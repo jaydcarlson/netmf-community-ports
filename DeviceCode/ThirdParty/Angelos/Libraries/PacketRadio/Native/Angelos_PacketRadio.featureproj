@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FeatureName>Angelos_PacketRadio</FeatureName>
+    <Guid>{f13c0512-09cb-4fe3-9cf1-4f728161a71e}</Guid>
+    <Description>&lt;Add Feature Description Here&gt;</Description>
+    <Groups />
+    <ANGELOS_PACKETRADIO_FEATUREPROJ>True</ANGELOS_PACKETRADIO_FEATUREPROJ>
+  </PropertyGroup>
+  <ItemGroup>
+    <DriverLibs Include="Angelos_PacketRadio.$(LIB_EXT)" />
+    <InteropFeature Include="Angelos_PacketRadio" />
+    <MMP_DAT_CreateDatabase Include="$(BUILD_TREE_CLIENT)\pe\$(ENDIANNESS)\Angelos_PacketRadio.pe" />
+    <RequiredProjects Include="C:\MicroFrameworkPK_v4_3\DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native\Stubs\dotnetmf.proj" />
+  </ItemGroup>
+</Project>
