@@ -17,3 +17,5 @@
 
 # BuildOutput
 /BuildOutput
+/.metadata
+.project
