@@ -1,0 +1,18 @@
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Directory>DeviceCode\ThirdParty\MC2\Libraries\SerialNumber\Native</Directory>
+    <AssemblyName>MC2_SerialNumber</AssemblyName>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+<ItemGroup>
+<HFile Include="MC2_SerialNumber.h" />
+<Compile Include="MC2_SerialNumber.cpp" />
+<Compile Include="MC2_SerialNumber_MC2_Hardware_SerialNumber_mshl.cpp" />
+<HFile Include="MC2_SerialNumber_MC2_Hardware_SerialNumber.h" />
+<Compile Include="MC2_SerialNumber_MC2_Hardware_SerialNumber.cpp" />
+</ItemGroup>
+<Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

@@ -34,10 +34,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Angelos_PacketRadio, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\BuildOutput\public\Release\Client\dll\Angelos_PacketRadio.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.SPOT.Hardware">
       <HintPath>$(BUILD_TREE_DLL)\Microsoft.SPOT.Hardware.dll</HintPath>
     </Reference>

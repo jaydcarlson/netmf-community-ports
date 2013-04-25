@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Name>SAM4S</Name>
+    <CpuName>Cortex-M4</CpuName>
+    <DefaultISA>THUMB2</DefaultISA>
+    <Guid>{9540FF93-45C0-4765-9E37-1E029A92C38E}</Guid>
+    <Description>Atmel SAM4S</Description>
+    <Documentation />
+    <ProjectPath>$(SPOCLIENT)\devicecode\Targets\Native\SAM4S\SAM4S.settings</ProjectPath>
+    <PLATFORM_FAMILY>ARM</PLATFORM_FAMILY>
+    <CustomFilter>Cortex</CustomFilter>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <INSTRUCTION_SET Condition="'$(INSTRUCTION_SET)'==''">THUMB2</INSTRUCTION_SET>
+    <TARGETPROCESSOR>SAM4S</TARGETPROCESSOR>
+    <TARGETCODEBASE>SAM4S</TARGETCODEBASE>
+    <TARGETCODEBASETYPE>Native</TARGETCODEBASETYPE>
+  </PropertyGroup>
+  <ItemGroup>
+    <IncludePaths Include="devicecode\Targets\Native\SAM4S" />
+  </ItemGroup>
+</Project>

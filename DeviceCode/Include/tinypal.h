@@ -41,6 +41,7 @@
 #include <USART_decl.h>
 #include <USB_decl.h>
 #include <PWM_decl.h>
+#include <SerialNumber_decl.h>
 #include <Analog_decl.h>
 #include <AnalogOut_decl.h>
 

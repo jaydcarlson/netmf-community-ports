@@ -1,0 +1,23 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <FeatureName>MC2.Hardware.SerialNumber</FeatureName>
+  </PropertyGroup>
+  <Import Condition="'$(CORE_FEATUREPROJ)'    ==''" Project="$(SPOCLIENT)\Framework\Features\core.featureproj" />
+  <Import Condition="'$(HARDWARE_FEATUREPROJ)'==''" Project="$(SPOCLIENT)\Framework\Features\Hardware.featureproj" />
+  <ItemGroup>
+    <InteropFeature Include="MC2_SerialNumber" />
+    <DriverLibs Include="MC2_SerialNumber.$(LIB_EXT)" />
+    <MMP_DAT_CreateDatabase Include="$(BUILD_TREE_CLIENT)\pe\$(ENDIANNESS)\MC2_SerialNumber.pe" />
+    <RequiredManagedProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\MC2\Libraries\SerialNumber\Managed\SerialNumber.csproj" Condition="'$(AUTOMATED_BUILD)'==''" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\MC2\Libraries\SerialNumber\Native\dotnetmf.proj" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\Framework\Features\SerialNumber_HAL.libcatproj" />
+  <PropertyGroup>
+    <Description>SerialNumber component</Description>
+    <Guid>{EA6F2D8C-7B5F-49DB-871C-55D420223404}</Guid>
+    <Groups>Hardware</Groups>
+    <Documentation>
+    </Documentation>
+    <SERIALNUMBER_FEATUREPROJ>True</SERIALNUMBER_FEATUREPROJ>
+  </PropertyGroup>
+</Project>

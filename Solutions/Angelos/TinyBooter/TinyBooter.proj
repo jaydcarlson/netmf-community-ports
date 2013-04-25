@@ -15,6 +15,7 @@
   </PropertyGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <PropertyGroup>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
     <OutputType>Executable</OutputType>
     <reducesize>true</reducesize>
     <MultipleOutputSections>false</MultipleOutputSections>
@@ -23,6 +24,7 @@
     <ScatterFileDefinition>scatterfile_bootloader_$(COMPILER_TOOL).$(SCATTER_EXT)</ScatterFileDefinition>
     <EXEScatterFileDefinition>scatterfile_bootloader_$(COMPILER_TOOL).$(SCATTER_EXT)</EXEScatterFileDefinition>
   </PropertyGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="$(SRC_DIR)\Allocator.cpp" />
     <Compile Include="$(SRC_DIR)\TinyBooterEntry.cpp" />
@@ -128,8 +130,8 @@
     <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\I2C\stubs\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\USART\stubs\dotNetMF.proj" />
     <DriverLibs Include="usart_pal_stubs.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\COM\USART\stubs\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="usb_pal.$(LIB_EXT)" />
@@ -255,12 +257,13 @@
     <DriverLibs Include="cpu_pwm_stubs.$(LIB_EXT)" />
     <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\stubs\processor\stubs_PWM\dotNetMF.proj" />
   </ItemGroup>
-
-  
-
   <ItemGroup>
     <DriverLibs Include="Analog_DA_HAL_Angelos.$(LIB_EXT)" />
     <RequiredProjects Include="$(SPOCLIENT)\Solutions\Angelos\DeviceCode\Analog_DA_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="STM32F4_SerialNumber.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\STM32F4\DeviceCode\STM32F4_SerialNumber\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="native_double_pal.$(LIB_EXT)" />

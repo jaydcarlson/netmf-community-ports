@@ -1,23 +1,40 @@
-<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
+    <AssemblyName>Angelos_PacketRadio</AssemblyName>
+    <Size />
+    <ProjectGuid>{d84e0589-a26e-4d1e-ad6a-0a64e6de8074}</ProjectGuid>
+    <Description />
+    <Level>HAL</Level>
+    <LibraryFile>Angelos_PacketRadio.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native\dotNetMF.proj</ProjectPath>
+    <ManifestFile>Angelos_PacketRadio.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Angelos.PacketRadio</Groups>
+    <Documentation />
+    <PlatformIndependent>False</PlatformIndependent>
+    <CustomFilter />
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <HasLibraryCategory>False</HasLibraryCategory>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
     <Directory>DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native</Directory>
     <AssemblyName>Angelos_PacketRadio</AssemblyName>
-  </PropertyGroup>
-  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
-  <PropertyGroup>
     <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
   </PropertyGroup>
-<ItemGroup>
-<HFile Include="Angelos_PacketRadio.h" />
-<Compile Include="Angelos_PacketRadio.cpp" />
-<Compile Include="Angelos_PacketRadio_Angelos_PacketRadio_mshl.cpp" />
-<HFile Include="Angelos_PacketRadio_Angelos_PacketRadio.h" />
-<Compile Include="Angelos_PacketRadio_Angelos_PacketRadio.cpp" />
-</ItemGroup>
-<ItemGroup>
-<HFile Include="Radio_PacketReceived.h" />
-<Compile Include="Radio_PacketReceived.cpp" />
-</ItemGroup>
-
-<Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Include="Angelos_PacketRadio.cpp" />
+    <Compile Include="Angelos_PacketRadio_Angelos_PacketRadio.cpp" />
+    <Compile Include="Angelos_PacketRadio_Angelos_PacketRadio_mshl.cpp" />
+    <Compile Include="Radio_PacketReceived.cpp" />
+    <HFile Include="Angelos_PacketRadio.h" />
+    <HFile Include="Angelos_PacketRadio_Angelos_PacketRadio.h" />
+    <HFile Include="Radio_PacketReceived.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

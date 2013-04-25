@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Mon Apr 22 19:06:53 2013
+;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Wed Apr 24 13:24:12 2013
 ;VERSION 0.2
 ;FILE Aborts.obj
 HARD_Breakpoint_Handler <= USED 0
@@ -43,7 +43,6 @@ SUPPORT_StubForARMEmulatorInterface <= USED 0
 ;FILE ComDirector.obj
 _Z29CPU_ProtectCommunicationGPIOsj <= USED 0
 ;FILE ConfigHelper.obj
-_ZN16HAL_CONFIG_BLOCK11ApplyConfigEPKcPvjPS2_ <= USED 0
 _ZN16HAL_CONFIG_BLOCK23InvalidateBlockWithNameEPKcj <= USED 0
 ;FILE CorLib_fastcompile.obj
 _ZN38Library_corlib_native_System_Exception13GetStackTraceEP16CLR_RT_HeapBlockRj <= USED 0
@@ -94,6 +93,8 @@ __asm___11_IO_Init_cpp_23b06a74___Z7__REVSHi <= USED 0
 _ZN15CLR_HW_Hardware26ManagedHardware_InitializeEv <= USED 0
 ;FILE LargeBuffer_stubs.obj
 _Z21LargeBuffer_PostEventt <= USED 0
+;FILE MC2_SerialNumber_MC2_Hardware_SerialNumber.obj
+;FILE MC2_SerialNumber_MC2_Hardware_SerialNumber_mshl.obj
 ;FILE MFUpdate_stub.obj
 _Z15MFUpdate_Deletei <= USED 0
 _Z20MFUpdate_GetPropertyjPKcPhPi <= USED 0
@@ -130,6 +131,7 @@ __asm___27_STM32F4_Power_functions_cpp_c15d8db7___Z7__REVSHi <= USED 0
 ;FILE STM32F4_SPI_functions.obj
 __asm___25_STM32F4_SPI_functions_cpp_1bd67797___Z7__REV16j <= USED 0
 __asm___25_STM32F4_SPI_functions_cpp_1bd67797___Z7__REVSHi <= USED 0
+;FILE STM32F4_SerialNumber_functions.obj
 ;FILE STM32F4_Time_functions.obj
 Time_CurrentTicks <= USED 0
 _Z15CPU_TicksToTimej <= USED 0
@@ -220,7 +222,6 @@ _Z15SetResult_UINT8R17CLR_RT_StackFrameh <= USED 0
 _Z15SetResult_floatR17CLR_RT_StackFramef <= USED 0
 _Z16SetResult_LPCSTRR17CLR_RT_StackFramePKc <= USED 0
 _Z16SetResult_UINT16R17CLR_RT_StackFramet <= USED 0
-_Z16SetResult_UINT32R17CLR_RT_StackFramej <= USED 0
 _Z16SetResult_UINT64R17CLR_RT_StackFramey <= USED 0
 _Z16SetResult_doubleR17CLR_RT_StackFramed <= USED 0
 _Z17CLR_DebuggerBreakv <= USED 0

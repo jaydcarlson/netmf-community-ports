@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FeatureName>MC2_SerialNumber</FeatureName>
+    <Guid>{27d2e5c7-6541-425e-a435-cabe83fbd56d}</Guid>
+    <Description>&lt;Add Feature Description Here&gt;</Description>
+    <Groups />
+    <MC2_SERIALNUMBER_FEATUREPROJ>True</MC2_SERIALNUMBER_FEATUREPROJ>
+  </PropertyGroup>
+  <ItemGroup>
+    <DriverLibs Include="MC2_SerialNumber.$(LIB_EXT)" />
+    <InteropFeature Include="MC2_SerialNumber" />
+    <MMP_DAT_CreateDatabase Include="$(BUILD_TREE_CLIENT)\pe\$(ENDIANNESS)\MC2_SerialNumber.pe" />
+    <RequiredProjects Include="C:\MicroFrameworkPK_v4_3\DeviceCode\ThirdParty\MC2\Libraries\SerialNumber\Native\Stubs\dotnetmf.proj" />
+  </ItemGroup>
+</Project>

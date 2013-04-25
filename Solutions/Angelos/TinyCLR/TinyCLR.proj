@@ -50,6 +50,7 @@
   <Import Project="$(SPOCLIENT)\Framework\Features\Diagnostics.featureproj" />
   <Import Project="$(SPOCLIENT)\Framework\Features\Serialization.featureproj" />
   <Import Project="$(SPOCLIENT)\Framework\Features\Angelos.PacketRadio.featureproj" />
+  <Import Project="$(SPOCLIENT)\Framework\Features\MC2.SerialNumber.featureproj" />
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Interop.Settings" />
   <ItemGroup>
     <DriverLibs Include="LargeBuffer_hal_stubs.$(LIB_EXT)" />
@@ -347,9 +348,13 @@
     <PlatformIndependentLibs Include="SPOT_Serialization.$(LIB_EXT)" />
     <RequiredProjects Include="$(SPOCLIENT)\CLR\Libraries\SPOT\SPOT_Serialization\dotNetMF.proj" />
   </ItemGroup>
+    <ItemGroup>
+    <DriverLibs Include="MC2_SerialNumber.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\MC2\Libraries\SerialNumber\Native\dotNetMF.proj" />
+  </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="Angelos_PacketRadio.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native\dotnetmf.proj" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\ThirdParty\Angelos\Libraries\PacketRadio\Native\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
     <PlatformIndependentLibs Include="CC1101.$(LIB_EXT)" />
@@ -418,6 +423,10 @@
   <ItemGroup>
     <DriverLibs Include="Analog_DA_HAL_Angelos.$(LIB_EXT)" />
     <RequiredProjects Include="$(SPOCLIENT)\Solutions\Angelos\DeviceCode\Analog_DA_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="STM32F4_SerialNumber.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\STM32F4\DeviceCode\STM32F4_SerialNumber\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="native_double_pal.$(LIB_EXT)" />

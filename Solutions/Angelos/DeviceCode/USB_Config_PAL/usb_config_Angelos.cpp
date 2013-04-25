@@ -13,17 +13,15 @@
 
 #include <tinyhal.h>
 
-//--//
-
 //string descriptor
-#define     MANUFACTURER_NAME_SIZE  15 /* "GHI Electronics" */ //5   /* "Ominc" */
+#define     MANUFACTURER_NAME_SIZE  15 /* "GHI Electronics" */
 // NOTE: Having more than (probably) 32 characters causes the MFUSB KERNEL driver
 // to *CRASH* which, of course, causes Windows to crash
-#define     PRODUCT_NAME_SIZE      11 /* "Cerb-Family" */ //12 /* "FEZ Cerberus" */ //15   /* "STM32 .Net Test" */
+#define     PRODUCT_NAME_SIZE      11 /* "Cerb-Family" */
 // NOTE: If these two strings are not present, the MFUSB KERNEL driver will *CRASH*
 // which, of course, causes Windows to crash
-#define     DISPLAY_NAME_SIZE      11 /* "Cerb-Family" */ //12 /* "FEZ Cerberus" */ //10    /* "STM32 Test" */
-#define     FRIENDLY_NAME_SIZE     9  /* "Gadgeteer" */ // 8   /* "a7e70ea2" */
+#define     DISPLAY_NAME_SIZE      7 /* "Angelos" */
+#define     FRIENDLY_NAME_SIZE     15  /* "ID: xx-xx-xx-xx" */
 // index for the strings
 #define     MANUFACTURER_NAME_INDEX 1
 #define     PRODUCT_NAME_INDEX      2
@@ -69,9 +67,9 @@ ADS_PACKED struct GNU_PACKED USB_DYNAMIC_CONFIGURATION
     USB_DESCRIPTOR_HEADER        endList;
 };
 
-extern const ADS_PACKED struct GNU_PACKED USB_DYNAMIC_CONFIGURATION UsbDefaultConfiguration;
+extern ADS_PACKED struct GNU_PACKED USB_DYNAMIC_CONFIGURATION UsbDefaultConfiguration;
 
-const struct USB_DYNAMIC_CONFIGURATION UsbDefaultConfiguration =
+struct USB_DYNAMIC_CONFIGURATION UsbDefaultConfiguration =
 {
     // Device descriptor
     {
@@ -189,10 +187,7 @@ const struct USB_DYNAMIC_CONFIGURATION UsbDefaultConfiguration =
         USB_STRING_DESCRIPTOR_HEADER_LENGTH + (sizeof(USB_STRING_CHAR) * DISPLAY_NAME_SIZE),
         USB_STRING_DESCRIPTOR_TYPE
     },
-    { 'C', 'e', 'r', 'b', '-', 'F', 'a', 'm', 'i', 'l', 'y' },
-    //{ 'F', 'E', 'Z', ' ', 'C', 'e', 'r', 'b', 'e', 'r', 'u', 's' },
-//    { 'S', 'T', 'M', '3', '2', ' ', 'T', 'e', 's', 't' },
-
+    { 'A', 'n', 'g', 'e', 'l', 'o', 's'},
     // String 5 descriptor (friendly name)
     {
         {
@@ -203,7 +198,23 @@ const struct USB_DYNAMIC_CONFIGURATION UsbDefaultConfiguration =
         USB_STRING_DESCRIPTOR_HEADER_LENGTH + (sizeof(USB_STRING_CHAR) * FRIENDLY_NAME_SIZE),
         USB_STRING_DESCRIPTOR_TYPE
     },
-    { 'G', 'a', 'd', 'g', 'e', 't', 'e', 'e', 'r' },
+    {
+        'I',
+        'D',
+        ':',
+        ' ',
+        'x',
+        'x',
+        '-',
+        'x',
+        'x',
+        '-',
+        'x',
+        'x',
+        '-',
+        'x',
+        'x'
+    }, /* "ID:xx-xx-xx-xx" */
 //    { 'a', '7', 'e', '7', '0', 'e', 'a', '2' },
 
     // OS Descriptor string for Sideshow

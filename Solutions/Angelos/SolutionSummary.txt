@@ -64,15 +64,17 @@ Libraries:
     lcd_hal_stubs:                     	 Stub display driver
     cpu_LCD_stubs:                     	 Display controller stub library
     STM32F4_Flash:                     	 STM32F4 internal flash block storage driver
+    STM32F4_blconfig_Angelos:          	 Block storage configuration for Angelos
+    BlockStorage_AddDevices_Angelos:   	 Block storage add device driver for Angelos
+    IO_Init_Angelos:                   	 IO port initialization for Angelos solution
     events_pal:                        	 System event library
     sockets_pal_stubs:                 	 Network socket stub driver
+    USB_Config_PAL_Angelos:            	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\Angelos\DeviceCode\USB_Config_PAL
     diagnostics_pal:                   	 Diagnostics library
     cpu_analog_stubs:                  	 Analog stub library
     cpu_pwm_stubs:                     	 PWM stub library
-    usb_pal_config_stub:               	 USB configuration stub library
-    BlockStorage_AddDevices_stubs:     	 Block storage add device stub driver
-    blconfig_stubs:                    	 Block storage stub config
     Analog_DA_HAL_Angelos:             	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\Angelos\DeviceCode\Analog_DA_HAL
+    STM32F4_SerialNumber:              	 STM32F4 SerialNumber driver
     native_double_pal:                 	 Doubles Native PAL library
 
 
@@ -95,6 +97,7 @@ Features:
     Diagnostics:                       	 Diagnostic utilities
     Serialization:                     	 Data serialization support
     Angelos.Hardware.PacketRadio:      	 Packet Radio functionality, including HAL-level driver and interop module
+    MC2.Hardware.SerialNumber:         	 SerialNumber component
 
 Libraries:
     LargeBuffer_hal_stubs:             	 LargeBuffer stub library
@@ -185,7 +188,9 @@ Libraries:
     cpu_LCD_stubs:                     	 Display controller stub library
     HeapPersistence_stub:              	 Heap persistence stub library
     USB_Config_PAL_Angelos:            	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\Angelos\DeviceCode\USB_Config_PAL
-    BlockStorageConfig_HAL_Angelos:    	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\Angelos\DeviceCode\BlockStorageConfig_HAL
-    BlockStorageAddDevices_HAL_Angelos:	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\Angelos\DeviceCode\BlockStorageAddDevices_HAL
+    STM32F4_blconfig_Angelos:          	 Block storage configuration for Angelos
+    BlockStorage_AddDevices_Angelos:   	 Block storage add device driver for Angelos
+    IO_Init_Angelos:                   	 IO port initialization for Angelos solution
     Analog_DA_HAL_Angelos:             	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\Angelos\DeviceCode\Analog_DA_HAL
+    STM32F4_SerialNumber:              	 STM32F4 SerialNumber driver
     native_double_pal:                 	 Doubles Native PAL library
