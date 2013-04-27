@@ -217,9 +217,31 @@ int hal_snprintf_float( char* buffer, size_t len, const char* format, float f )
 
 		f = f - (double)(INT64)f;
 		if(f < 0) f = -f;
-		f *= 1000000000ull;
 
-		return hal_snprintf( buffer, len, "%lld.%09llu", i, (UINT64)f);
+		//		f *= 1000000000ull;
+		//		return hal_snprintf( buffer, len, "%lld.%09llu", i, (UINT64)f);
+
+		//handle the precision param
+		// create the format string from the format parameter like "%.2f" or "%.12f"
+		char formatStr[50];
+		int precision = atoi(&format[2]);
+		if (f != 0) 
+		{
+			for (int i = 0; i<precision; i++)
+				f *= 10ull;
+			hal_snprintf( formatStr, ARRAYSIZE(formatStr), "%%lld.%%%dllu", precision); 
+		}
+		else
+		{
+			//create the trailing zeros
+			char zeros[32];
+			int i;
+			for (i = 0; i < precision && i < ARRAYSIZE(zeros) - 1; i++)
+				zeros[i] = '0';
+			zeros[i] = '\0';
+			hal_snprintf( formatStr, ARRAYSIZE(formatStr), "%%lld.%s", zeros);
+		}
+		return hal_snprintf( buffer, len, formatStr, i, (UINT64)f);
 	}
 #else
 
@@ -285,9 +307,31 @@ int hal_snprintf_double( char* buffer, size_t len, const char* format, double d 
 
 		d = d - (double)(INT64)d;
 		if(d < 0) d = -d;
-		d *= 100000000000000000ull;
+		//d *= 100000000000000000ull;
+		//return hal_snprintf( buffer, len, "%lld.%017llu", i, (UINT64)d);
 
-		return hal_snprintf( buffer, len, "%lld.%017llu", i, (UINT64)d);
+		//handle the precision param
+		// create the format string from the format parameter like "%.2f" or "%.12f"
+		char formatStr[50];
+		int precision = atoi(&format[2]);
+		if (d != 0) 
+		{
+			for (int i = 0; i<precision; i++)
+				d *= 10ull;
+			hal_snprintf( formatStr, ARRAYSIZE(formatStr), "%%lld.%%%dllu", precision); 
+		}
+		else
+		{
+			//create the trailing zeros
+			char zeros[32];
+			int i;
+			for (i = 0; i < precision && i < ARRAYSIZE(zeros) - 1; i++)
+				zeros[i] = '0';
+			zeros[i] = '\0';
+			hal_snprintf( formatStr, ARRAYSIZE(formatStr), "%%lld.%s", zeros);
+		}
+		return hal_snprintf( buffer, len, formatStr, i, (UINT64)d);
+
 	}
 #else
 
