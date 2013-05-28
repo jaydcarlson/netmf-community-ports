@@ -45,26 +45,26 @@
     <IncludePaths Include="DeviceCode\Drivers\Ethernet\Enc28J60_LWIP" />
     <IncludePaths Include="DeviceCode\include" />
     <IncludePaths Include="DeviceCode\pal\net" />
-    <IncludePaths Include="DeviceCode\pal\lwip\lwip_1_3_2\src\include" />
-    <IncludePaths Include="DeviceCode\pal\lwip\lwip_1_3_2\src\include\ipv4" />
-    <IncludePaths Include="DeviceCode\pal\lwip\lwip_1_3_2\contrib\ports\arm\include" />
-    <IncludePaths Include="DeviceCode\pal\lwip\lwip_1_3_2\contrib\ports\arm\proj\lwIPv4lib" />
+    <IncludePaths Include="DeviceCode\pal\lwip\LWIP\src\include" />
+    <IncludePaths Include="DeviceCode\pal\lwip\LWIP\src\include\ipv4" />
+    <IncludePaths Include="DeviceCode\pal\lwip\LWIP\contrib\ports\arm\include" />
+    <IncludePaths Include="DeviceCode\pal\lwip\LWIP\contrib\ports\arm\proj\lwIPv4lib" />
   </ItemGroup>
   <ItemGroup>
     <HFiles Include="$(SPOCLIENT)\devicecode\drivers\ethernet\enc28j60_lwip\enc28j60_lwip_driver.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\contrib\ports\arm\include\arch\cc.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\ipv4\lwip\inet.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\ipv4\lwip\ip.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\ipv4\lwip\ip_addr.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\arch.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\debug.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\def.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\dhcp.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\err.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\netif.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\opt.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\pbuf.h" />
-    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\lwip_1_3_2\src\include\lwip\udp.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\contrib\ports\arm\include\arch\cc.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\ipv4\lwip\inet.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\ipv4\lwip\ip.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\ipv4\lwip\ip_addr.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\arch.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\debug.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\def.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\dhcp.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\err.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\netif.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\opt.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\pbuf.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\lwip\LWIP\src\include\lwip\udp.h" />
     <HFiles Include="$(SPOCLIENT)\devicecode\pal\net\network_defines_lwip.h" />
     <HFiles Include="$(SPOCLIENT)\devicecode\pal\net\net_decl_lwip.h" />
   </ItemGroup>

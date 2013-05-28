@@ -585,11 +585,11 @@
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="sockets_hal_sockets_lwIP.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\lwip_1_3_2\src\dotnetmf_sockets.proj" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\LWIP\src\dotnetmf_sockets.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="sockets_hal_DHCP_LWIP.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\lwip_1_3_2\src\dotnetmf_dhcp.proj" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\LWIP\src\dotnetmf_dhcp.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="sockets_lwIP_pal.$(LIB_EXT)" />
@@ -601,11 +601,11 @@
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="sockets_hal_tcp_lwIP.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\lwip_1_3_2\src\dotnetmf_tcp.proj" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\LWIP\src\dotnetmf_tcp.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="sockets_hal_udp_lwIP.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\lwip_1_3_2\src\dotnetmf_udp.proj" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\pal\lwip\LWIP\src\dotnetmf_udp.proj" />
   </ItemGroup>
   <ItemGroup>
     <DriverLibs Include="ETHERNET_enc28j60_lwip.$(LIB_EXT)" />

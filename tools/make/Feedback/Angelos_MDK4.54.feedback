@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Wed Apr 24 13:24:12 2013
+;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Sat Apr 27 11:19:00 2013
 ;VERSION 0.2
 ;FILE Aborts.obj
 HARD_Breakpoint_Handler <= USED 0
@@ -43,6 +43,7 @@ SUPPORT_StubForARMEmulatorInterface <= USED 0
 ;FILE ComDirector.obj
 _Z29CPU_ProtectCommunicationGPIOsj <= USED 0
 ;FILE ConfigHelper.obj
+_ZN16HAL_CONFIG_BLOCK11ApplyConfigEPKcPvjPS2_ <= USED 0
 _ZN16HAL_CONFIG_BLOCK23InvalidateBlockWithNameEPKcj <= USED 0
 ;FILE CorLib_fastcompile.obj
 _ZN38Library_corlib_native_System_Exception13GetStackTraceEP16CLR_RT_HeapBlockRj <= USED 0
